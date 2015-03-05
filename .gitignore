@@ -1,5 +1,5 @@
 settings.py
-.pyc
+*.pyc
 venv
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
