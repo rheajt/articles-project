@@ -1,10 +1,11 @@
 import requests
 import json
 from bs4 import BeautifulSoup
+from settings import API
 
 def search_request(search_string):
     search_string = search_string.replace(' ', '%20')
-    api = 'zsPq6ggkKM6bJ8BhES4oui9ZBeg_'
+    api = API
     search = requests.get('http://www.faroo.com/api?q='+search_string+'&start=1&length=10&l=en&src=news&i=false&f=json&key='+api)
     search_json = search.json()
     results = search_json['results']
