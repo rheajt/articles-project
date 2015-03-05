@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block body %}
+
+{% if page_type == "results" %}
+
+{% for r in results %}
+    <hr>
+    <form action='/results/article' method="POST">
+        <a href="{{ r['url'] }}" target="_blank">{{r['title']}} from {{ r['domain']}}</a>
+            <br>
+        {{ r['kwic'] }}
+            <br><br>
+        <button name="view" type="submit" value="{{ r['url'] }}">View</button>
+    </form>
+    <hr>
+{% endfor %}
+
+{% elif page_type == "view_article" %}
+
+<p>Just a test</p>
+{{ view_text }}
+
+{% endif %}
+{% endblock %}
