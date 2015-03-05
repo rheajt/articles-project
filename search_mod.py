@@ -14,7 +14,12 @@ def search_request(search_string):
 def scrape_site(url):
     url_html = requests.get(url)
     site_soup = BeautifulSoup(url_html.text)
+    article_data = [site_soup.title.text]
+    article_data.append(url)
     body_text = site_soup.find_all('p')
-
-
-    return body_text
+    page_text = ""
+    for tag in body_text:
+        page_text += tag.text
+        page_text += "\n\n"
+    article_data.append(page_text)
+    return article_data

@@ -8,7 +8,7 @@
     <form action='/results/article' method="POST">
         <a href="{{ r['url'] }}" target="_blank">{{r['title']}} from {{ r['domain']}}</a>
             <br>
-        {{ r['kwic'] }}
+    {{ r['kwic'] }}
             <br><br>
         <button name="view" type="submit" value="{{ r['url'] }}">View</button>
     </form>
@@ -17,8 +17,15 @@
 
 {% elif page_type == "view_article" %}
 
-<p>Just a test</p>
-{{ view_text }}
+{% for a in article %}
+    {% if loop.index == 1 %}
+    <h3>{{ a }}</h3><br>
+    {% elif loop.index == 2 %}
+    <i>{{ a }}</i><br>
+    {% elif loop.index == 3 %}
+    {{ a }}<br>
+    {% endif %}
+{% endfor %}
 
 {% endif %}
 {% endblock %}
