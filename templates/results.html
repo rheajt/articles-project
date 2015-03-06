@@ -6,7 +6,7 @@
 {% for r in results %}
     <hr>
     <form action='/results/article' method="POST">
-        <a href="{{ r['url'] }}" target="_blank">{{r['title']}} from {{ r['domain']}}</a>
+        <a href="{{ r['url'] }}" target="_blank">{{r['title']}}</a> from {{ r['domain']}}
             <br>
     {{ r['kwic'] }}
             <br><br>
